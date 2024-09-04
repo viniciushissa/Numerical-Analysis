@@ -24,6 +24,6 @@ def newton(p0, max_iter):
         _iter += 1
         p0_aux = p
     return p
+
 max_iter = 100
 print(f'Zero aproximado: {newton(0.5, max_iter)}')
-
