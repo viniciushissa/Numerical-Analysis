@@ -1,6 +1,5 @@
 import numpy as np 
 import matplotlib.pyplot as plt
-import os 
 
 def ponto_fixo_iterativo(x0, tol, max_iter):
     x = x0
@@ -30,7 +29,7 @@ def f(x):
     return np.exp(x) - 4*x
 
 def g(x):
-    return np.exp(x)/4 # g(x) < 1
+    return np.exp(x)/4 # g'(x) < 1
 
 x0 = 1 # valor iniciar
 tol = 1e-3 # tolerância para parada
@@ -40,7 +39,7 @@ print(f'A raiz aproximada é: {raiz:.8}')
 plot_grafico(0, 1)
 
 def g(x):
-    return 4 * x**2 / np.exp(x) # g(x) > 1
+    return 4 * x**2 / np.exp(x) # g'(x) > 1
 
 x0 = 3
 tol = 1e-3
