@@ -19,13 +19,16 @@ def gauss_elimination(A, b):
     for i in range(n-1, -1, -1):
         x[i] = (augmented_matrix[i, -1] - np.dot(augmented_matrix[i, i+1:n], x[i+1:n])) / augmented_matrix[i, i]
     
-    return x
+    return x, augmented_matrix
 
-A = np.array([[0.8, -0.2, -0.2, -0.3], 
-              [-0.2, 0.9, -0.2, -0.3], 
-              [-0.3, -0.3, 0.8, -0.2],
-              [-0.2, -0.2, -0.4, 0.8]], dtype=float)
-b = np.array([0.5, 0.4, 0.3, 0], dtype=float)
+A = np.array([[1, 2, 1], 
+              [2, 5, -1],
+              [3, -2, -1]], dtype=float)
+b = np.array([3, -4, 5], dtype=float)
 
-solucao = gauss_elimination(A, b)
-print("Solução do sistema:", solucao)
+print(f'Matriz A=\n{A} \n b={b}\n')
+
+solucao, augmented_matrix = gauss_elimination(A, b)
+
+print(f'Matriz após Gauss:\n{augmented_matrix}\n')
+print("Solução do sistema: b=", solucao)

@@ -27,11 +27,13 @@ def gauss_jordan(A, b):
     return augmented_matrix, x
 
 A = np.array([[1, -2, 3], 
-              [-1, 3, 0], 
-              [2, -5, 5]], dtype=float)
+             [-1, 3, 0],
+             [2, -5, 5]], dtype=float)
 b = np.array([9, -4, 17], dtype=float)
+
+print(f'Matriz A=\n{A} \n b={b}')
 
 augmented_matrix, solucao = gauss_jordan(A, b)
 
 print("Matriz aumentada após Gauss-Jordan:\n", augmented_matrix)
-print("Solução do sistema:", solucao)
+print("Solução do sistema: b=", solucao)
