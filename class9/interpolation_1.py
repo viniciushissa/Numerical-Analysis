@@ -40,7 +40,6 @@ def interpolacao_polinomial(x, fx):
 
     return polinomio
 
-# Exemplo de uso:
 x = [0.1, 0.6, 0.8]
 fx = [1.221, 3.320, 4.953]
 
