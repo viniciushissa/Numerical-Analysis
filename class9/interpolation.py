@@ -1,21 +1,17 @@
 def gauss_elimination(A, b):
     n = len(b)
     
-    # Aplicando eliminação de Gauss
     for i in range(n):
-        # Pivotamento
         if A[i][i] == 0.0:
             raise ValueError("Divisão por zero detectada!")
         
         for j in range(i+1, n):
             ratio = A[j][i] / A[i][i]
             
-            # Elimina as entradas abaixo do pivô
             for k in range(n):
                 A[j][k] = A[j][k] - ratio * A[i][k]
             b[j] = b[j] - ratio * b[i]
     
-    # Resolvendo o sistema triangular superior
     x = [0 for i in range(n)]
     x[n-1] = b[n-1] / A[n-1][n-1]
     
@@ -30,13 +26,10 @@ def gauss_elimination(A, b):
 def interpolacao_polinomial(x, fx):
     n = len(x)
     
-    # Monta a matriz de Vandermonde manualmente
     A = [[x[i]**(n-j-1) for j in range(n)] for i in range(n)]
     
-    # Resolve o sistema linear Ax = fx
-    coeficientes = gauss_elimination(A, fx[:])  # Faz uma cópia de fx
+    coeficientes = gauss_elimination(A, fx[:])
     
-    # Monta o polinômio como string
     polinomio = ""
     for i, coef in enumerate(coeficientes):
         if coef != 0:
